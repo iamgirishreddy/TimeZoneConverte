@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Class Timings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Chess Class Timings</h1>
+        <div class="input-section">
+            <label for="inputDate">Choose Date:</label>
+            <input type="date" id="inputDate">
+            <label for="inputTime">Enter Time:</label>
+            <input type="time" id="inputTime">
+            <label for="timeZoneSelect">Select Time Zone:</label>
+            <select id="timeZoneSelect">
+                <option value="est">EST</option>
+                <option value="cst">CST</option>
+                <option value="pst">PST</option>
+                <option value="ist">IST</option>
+            </select>
+            <button onclick="convertTime()">Convert</button>
+        </div>
+        <div class="output-section">
+            <h2>Converted Timings</h2>
+            <div class="timings" id="outputTimings">
+                <!-- Output timings will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
