@@ -88,3 +88,27 @@ button:hover {
     color: #777;
     font-size: 14px;
 }
+
+.current-times-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 14px; /* Adjust the font size as per your preference */
+}
+
+.current-times-section .timezone {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.current-times-section h3 {
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 14px; /* Adjust the font size as per your preference */
+}
+
+.current-times-section p {
+    color: #777;
+    font-size: 12px; /* Adjust the font size as per your preference */
+}

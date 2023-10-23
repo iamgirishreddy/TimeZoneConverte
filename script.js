@@ -7,6 +7,7 @@ const convertTime = () => {
     }
     const convertedTimings = convertToAllTimeZones(inputDate, inputTime, selectedTimeZone);
     displayTimings(convertedTimings, selectedTimeZone);
+    displayCurrentTimes();
 };
 
 const convertToAllTimeZones = (inputDate, inputTime, selectedTimeZone) => {
@@ -26,10 +27,10 @@ const convertToAllTimeZones = (inputDate, inputTime, selectedTimeZone) => {
     const pstDate = formatDate(inputDateTime, "America/Los_Angeles");
     const istDate = formatDate(inputDateTime, "Asia/Kolkata");
 
-    const estTime = inputDateTime.toLocaleTimeString("en-US", { timeZone: "America/New_York" });
-    const cstTime = inputDateTime.toLocaleTimeString("en-US", { timeZone: "America/Chicago" });
-    const pstTime = inputDateTime.toLocaleTimeString("en-US", { timeZone: "America/Los_Angeles" });
-    const istTime = inputDateTime.toLocaleTimeString("en-US", { timeZone: "Asia/Kolkata" });
+    const estTime = formatTime(inputDateTime, "America/New_York");
+    const cstTime = formatTime(inputDateTime, "America/Chicago");
+    const pstTime = formatTime(inputDateTime, "America/Los_Angeles");
+    const istTime = formatTime(inputDateTime, "Asia/Kolkata");
 
     return { estTime, cstTime, pstTime, istTime, estDate, cstDate, pstDate, istDate };
 };
@@ -66,12 +67,56 @@ const displayTimings = (timings, selectedTimeZone) => {
     `;
 };
 
+
 const displayError = (error) => {
     const outputTimings = document.getElementById("outputTimings");
     outputTimings.innerHTML = `<p style="color: red;">${error}</p>`;
 };
 
 const formatDate = (dateTime, timeZone) => {
-    const options = { timeZone: timeZone, year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { timeZone: timeZone, year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
     return dateTime.toLocaleDateString("en-US", options);
 };
+
+const formatTime = (dateTime, timeZone) => {
+    const options = { timeZone: timeZone, hour: 'numeric', minute: 'numeric', hour12: false };
+    return dateTime.toLocaleTimeString("en-US", options);
+};
+
+const displayCurrentTimes = () => {
+    const currentTimesSection = document.getElementById("currentTimes");
+    const updateTime = () => {
+        const currentTime = new Date();
+        currentTimesSection.innerHTML = `
+            <div class="current-times-section">
+                <div class="timezone">
+                    <h3>EST</h3>
+                    <p>${formatTime(currentTime, "America/New_York")}</p>
+                </div>
+                <div class="timezone">
+                    <h3>CST</h3>
+                    <p>${formatTime(currentTime, "America/Chicago")}</p>
+                </div>
+                <div class="timezone">
+                    <h3>PST</h3>
+                    <p>${formatTime(currentTime, "America/Los_Angeles")}</p>
+                </div>
+                <div class="timezone">
+                    <h3>IST</h3>
+                    <p>${formatTime(currentTime, "Asia/Kolkata")}</p>
+                </div>
+            </div>
+        `;
+    };
+    updateTime(); // Call the function immediately to display the time on load
+    setInterval(updateTime, 1000); // Update the time every second (1000 milliseconds)
+};
+
+
+// Call displayCurrentTimes once the page loads
+window.onload = () => {
+    displayCurrentTimes();
+};
+
+
+
