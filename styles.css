@@ -112,3 +112,13 @@ button:hover {
     color: #777;
     font-size: 12px; /* Adjust the font size as per your preference */
 }
+
+/* Your existing CSS code */
+
+/* Signature */
+.signature {
+    margin-top: 10px;
+    color: #999;
+    font-style: italic;
+    font-size: 12px; /* Adjust the font size as needed */
+}

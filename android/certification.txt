@@ -1,0 +1,24 @@
+---------------------------------------------------
+Here are the ownership and the certification details
+of the TimeZone Converter 1.0
+---------------------------------------------------
+
+app_name - 						TimeZone Converter
+app_alias - 					timezoneconverter
+app_author_name - 				My Company
+app_author_organizational - 	My Company
+app_author_organization - 		My Company
+app_author_locality - 			My Company
+app_author_state - 				Maharashtra
+app_author_country - 			India
+app_password - 					KrFBbiWKA3ZQ
+app_versionName - 				versionName "1.0"
+app_versionCode - 				100
+
+---------------------------------------------------
+The certification was created by WebIntoApp.com at
+the Monday 23rd of October 2023 09:41:16 AM
+
+https://www.webintoapp.com
+---------------------------------------------------
+
